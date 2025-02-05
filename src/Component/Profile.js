@@ -82,7 +82,7 @@ class Profile extends Component {
               value={this.state.name} 
               onChange={this.handleChange} 
               placeholder="Enter Name" 
-              className={`input-field ${errors.name ? 'error' : ''}`}
+              className={`input-field-first ${errors.name ? 'error' : ''}`}
             />
             {errors.name && <span className="error-message">{errors.name}</span>}
             
