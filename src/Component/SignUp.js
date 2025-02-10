@@ -71,8 +71,8 @@ class SignUp extends Component {
     <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
   </div>
   <div className="input-field">
-    <label>Phone Number</label>
-    <input type="text" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} required />
+    <label className="last">Phone Number</label>
+    <input className="last" type="text" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} required />
   </div>
 </div>
 
@@ -83,8 +83,8 @@ class SignUp extends Component {
     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
   </div>
   <div className="input-field">
-    <label>Confirm Password</label>
-    <input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} required />
+    <label className="last">Confirm Password</label>
+    <input className="last" type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} required />
     {this.state.errors.confirmPassword && <p className="error-text">{this.state.errors.confirmPassword}</p>}
   </div>
 </div>
@@ -92,8 +92,9 @@ class SignUp extends Component {
 {/* Gender & Role */}
 <div className="gender-role">
   <div className="gender-options">
-    <label><input type="radio" name="gender" value="Male" onChange={this.handleChange} required /> Male</label>
-    <label><input type="radio" name="gender" value="Female" onChange={this.handleChange} required /> Female</label>
+  <label>Gender</label>
+    <input type="radio" name="gender" value="Male" onChange={this.handleChange} required /> Male
+    <input type="radio" name="gender" value="Female" onChange={this.handleChange} required /> Female
   </div>
   <div className="role-select">
     <label>Role</label>
