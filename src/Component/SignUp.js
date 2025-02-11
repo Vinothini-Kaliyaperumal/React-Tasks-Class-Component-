@@ -8,23 +8,40 @@ class SignUp extends Component {
     this.state = {
       firstName: "",
       lastName: "",
-      password: "",
-      age: "",
       email: "",
-      address: "",
-      bloodGroup: "",
+      phoneNumber: "",
+      password: "",
+      confirmPassword: "",
       gender: "",
       role: "",
+      errors: {},
     };
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    this.setState({ [name]: value, errors: { ...this.state.errors, [name]: "" } });
+  };
+
+  validateForm = () => {
+    let errors = {};
+    const { password, confirmPassword } = this.state;
+
+    if (password !== confirmPassword) {
+      errors.confirmPassword = "Passwords do not match!";
+    }
+
+    return errors;
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const errors = this.validateForm();
+    if (Object.keys(errors).length > 0) {
+      this.setState({ errors });
+      return;
+    }
+
     console.log(this.state);
     this.props.history.push("/signin");
   };
@@ -33,39 +50,66 @@ class SignUp extends Component {
     return (
       <div className="signup-container">
         <div className="signup-box">
-          <h2 className="signup-title">Create an Account</h2>
+          <h2 className="signup-title">Sign-Up Form</h2>
           <form onSubmit={this.handleSubmit} className="signup-form">
-            <div className="input-group">
-              <input type="text" name="firstName" placeholder="First Name" value={this.state.firstName} onChange={this.handleChange} required />
-              <input type="text" name="lastName" placeholder="Last Name" value={this.state.lastName} onChange={this.handleChange} required />
-            </div>
+          <div className="input-row">
+  {/* First Name & Last Name */}
+  <div className="input-field">
+    <label>First Name</label>
+    <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} required />
+  </div>
+  <div className="input-field">
+    <label className="last">Last Name</label>
+    <input className="last" type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange} required />
+  </div>
+</div>
 
-            <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
-            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required />
-            <input type="number" name="age" placeholder="Age" value={this.state.age} onChange={this.handleChange} required />
-            <textarea name="address" placeholder="Address" value={this.state.address} onChange={this.handleChange} required></textarea>
+<div className="input-row">
+  {/* Email & Phone */}
+  <div className="input-field">
+    <label>Email</label>
+    <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+  </div>
+  <div className="input-field">
+    <label className="last">Phone Number</label>
+    <input className="last" type="text" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} required />
+  </div>
+</div>
 
-            <select name="bloodGroup" value={this.state.bloodGroup} onChange={this.handleChange} required>
-              <option value="">Select Blood Group</option>
-              <option value="A+">A+</option>
-              <option value="B+">B+</option>
-              <option value="O+">O+</option>
-              <option value="AB+">AB+</option>
-            </select>
+<div className="input-row">
+  {/* Password & Confirm Password */}
+  <div className="input-field">
+    <label>Password</label>
+    <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+  </div>
+  <div className="input-field">
+    <label className="last">Confirm Password</label>
+    <input className="last" type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} required />
+    {this.state.errors.confirmPassword && <p className="error-text">{this.state.errors.confirmPassword}</p>}
+  </div>
+</div>
 
-            <div className="gender-group">
-              <label><input type="radio" name="gender" value="Male" onChange={this.handleChange} required /> Male</label>
-              <label><input type="radio" name="gender" value="Female" onChange={this.handleChange} required /> Female</label>
-            </div>
+{/* Gender & Role */}
+<div className="gender-role">
+  <div className="gender-options">
+  <label>Gender</label>
+    <input type="radio" name="gender" value="Male" onChange={this.handleChange} required /> Male
+    <input type="radio" name="gender" value="Female" onChange={this.handleChange} required /> Female
+  </div>
+  <div className="role-select">
+    <label>Role</label>
+    <select name="role" value={this.state.role} onChange={this.handleChange} required>
+      <option value="">Select Role</option>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+    </select>
+  </div>
+</div>
 
-            <select name="role" value={this.state.role} onChange={this.handleChange} required>
-              <option value="">Select Role</option>
-              <option value="admin">Admin</option>
-              <option value="user">User</option>
-            </select>
-
+            {/* Submit Button */}
             <button type="submit" className="signup-btn">Sign Up</button>
           </form>
+
           <p className="signup-link">Already have an account? <Link to="/signin">Sign In</Link></p>
         </div>
       </div>

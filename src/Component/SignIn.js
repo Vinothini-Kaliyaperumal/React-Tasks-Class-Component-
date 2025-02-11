@@ -25,7 +25,7 @@ class SignIn extends Component {
   render() {
     return (
       <div className="container">
-        <div className="card">
+        <div className="card form">
           <h2>Sign In</h2>
           <form onSubmit={this.handleSubmit}>
             <div className="formGroup">

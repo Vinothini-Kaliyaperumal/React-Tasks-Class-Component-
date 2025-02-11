@@ -1,181 +1,169 @@
-/* General Container Styling */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #ebebf8;
-    min-height: 100vh;
-  }
-  
-  .title {
-    color: #333;
-    margin-bottom: 20px;
-  }
-  .user{
-    margin-left: 40px;
-  }
-  
-  /* Card Styling */
+.container1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: #ebebf8;
+}
+
+.first{
+  width: 330px;
+}
+
+.title {
+  color: #333;
+  margin-top: -50px;  
+}
+
+.user{
+  margin-left: 40px;
+  margin-top: 50px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form > label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form > input,
+.form > textarea,
+.form > select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.input-field::placeholder {
+  color: #888;
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+}
+
+textarea {
+  resize: vertical;
+  height: 80px;
+}
+.form > select{
+  font-size: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #888;
+}
+.gender-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-button,
+.cancel-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  width: 45%;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+.submit-button {
+  background: linear-gradient(45deg, #47bb62, #49b861);
+  color: white;
+  font-size: 15px;
+}
+
+.cancel-button {
+  background: linear-gradient(45deg, #b35d66, #c06a72);
+  color: white;
+  font-size: 15px;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.styled-table th {
+  background: #e9e6e6;
+  color:black;
+}
+
+.styled-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+/* Action Buttons */
+.edit-button,
+.delete-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.edit-button {
+  background: linear-gradient(45deg, #ffc107, #e0a800);
+  color: black;
+}
+
+.delete-button {
+  background: linear-gradient(45deg, #dc3545, #b52a37);
+  color: white;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
   .card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 90%;
-    max-width: 500px;
-    margin-bottom: 20px;
-  }
-  
-  /* Form Styling */
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .form > label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 17px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .form > input,
-  .form > textarea,
-  .form > select {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-  }
-  
-  .input-field::placeholder {
-    color: #888;
-    display: flex;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
-  }
-  
-  textarea {
-    resize: vertical;
-    height: 80px;
-  }
-  .form > select{
-    font-size: 15px;
-    font-family: 'Courier New', Courier, monospace;
-    color: #888;
-  }
-  .gender-group {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .button-group {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .submit-button,
-  .cancel-button {
-    padding: 8px 12px;
-    font-size: 14px;
-    width: 45%;
-    cursor: pointer;
-    border: none;
-    border-radius: 6px;
-  }
-  
-  .submit-button {
-    background: linear-gradient(45deg, #47bb62, #49b861);
-    color: white;
-    font-size: 15px;
-  }
-  
-  .cancel-button {
-    background: linear-gradient(45deg, #b35d66, #c06a72);
-    color: white;
-    font-size: 15px;
-  }
-  
-  /* Table Styling */
-  .table-card {
-    max-width: 800px;
-    width: 90%;
-    overflow-x: auto;
-  }
-  
-  .styled-table {
     width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
   }
-  
   .styled-table th,
   .styled-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .styled-table th {
-    background: #e9e6e6;
-    color:black;
-  }
-  
-  .styled-table tr:nth-child(even) {
-    background: #f2f2f2;
-  }
-  
-  /* Action Buttons */
-  .edit-button,
-  .delete-button {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
     font-size: 14px;
-    margin-right: 5px;
+    padding: 8px;
   }
-  
-  .edit-button {
-    background: linear-gradient(45deg, #ffc107, #e0a800);
-    color: black;
-  }
-  
-  .delete-button {
-    background: linear-gradient(45deg, #dc3545, #b52a37);
-    color: white;
-  }
-
-  .error {
-    border: 2px solid red;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
-  }
-  
-  
-  /* Responsive Design */
-  @media (max-width: 600px) {
-    .card {
-      width: 100%;
-    }
-    .styled-table th,
-    .styled-table td {
-      font-size: 14px;
-      padding: 8px;
-    }
-  }
-  
+}

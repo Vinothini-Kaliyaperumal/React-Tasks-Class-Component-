@@ -1,6 +1,5 @@
-// src/Component/Profile.js
 import React, { Component } from 'react';
-import './Profile.css'; // Importing the CSS file
+import './Profile.css'; 
 
 class Profile extends Component {
   constructor() {
@@ -31,7 +30,7 @@ class Profile extends Component {
     if (!address) errors.address = "Address is required.";
     if (!age || age <= 0) errors.age = "Age must be greater than 0.";
     if (!bloodGroup) errors.bloodGroup = "Blood group is required.";
-    if (!gender) errors.gender = "Gender is required."; // Added validation for gender
+    if (!gender) errors.gender = "Gender is required."; 
 
     if (Object.keys(errors).length > 0) {
       this.setState({ errors });
@@ -70,7 +69,7 @@ class Profile extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div className="container">
+      <div className="container1">
         <h2 className="title">User Registration Form</h2>
         
         <div className="card form-card">
@@ -82,7 +81,7 @@ class Profile extends Component {
               value={this.state.name} 
               onChange={this.handleChange} 
               placeholder="Enter Name" 
-              className={`input-field ${errors.name ? 'error' : ''}`}
+              className={`input-field first ${errors.name ? 'error' : ''}`}
             />
             {errors.name && <span className="error-message">{errors.name}</span>}
             
@@ -103,7 +102,7 @@ class Profile extends Component {
               value={this.state.age} 
               onChange={this.handleChange}
               placeholder="Enter Age" 
-              className={`input-field ${errors.age ? 'error' : ''}`}
+              className={`input-field first ${errors.age ? 'error' : ''}`}
             />
             {errors.age && <span className="error-message">{errors.age}</span>}
             
