@@ -5,6 +5,7 @@ import SignUp from "./Component/SignUp";
 import SignIn from "./Component/SignIn";
 import Admin from "./Component/Admin";
 import User from "./Component/User";
+// import Landing from "./Component/Landing";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/user" element={<User />} />
+          {/* <Route path="/landing" element={<Landing />} /> */}
         </Routes>
       </BrowserRouter>
     );

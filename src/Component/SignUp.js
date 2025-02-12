@@ -90,7 +90,7 @@ class SignUp extends Component {
 </div>
 
 {/* Gender & Role */}
-<div className="gender-role">
+{/* <div className="gender-role">
   <div className="gender-options">
   <label>Gender</label>
     <input type="radio" name="gender" value="Male" onChange={this.handleChange} required /> Male
@@ -104,7 +104,7 @@ class SignUp extends Component {
       <option value="user">User</option>
     </select>
   </div>
-</div>
+</div> */}
 
             {/* Submit Button */}
             <button type="submit" className="signup-btn">Sign Up</button>
