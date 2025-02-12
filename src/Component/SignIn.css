@@ -43,7 +43,7 @@
     width: 100%;
     padding: 10px;
     border: none;
-    background: #007bff;
+    background: #ff5f6d;
     color: white;
     font-size: 18px;
     border-radius: 5px;
@@ -52,7 +52,7 @@
   }
   
   .submitBtn:hover {
-    background: #0056b3;
+    background:#ff3d5a ;
   }
   
   /* Sign Up link */
@@ -61,7 +61,7 @@
   }
   
   .signupLink {
-    color: #007bff;
+    color:#ff5f6d;
     text-decoration: none;
     font-weight: bold;
   }
