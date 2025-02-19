@@ -1,26 +1,16 @@
-import React, { Component, ChangeEvent, FormEvent } from 'react';
+import React, { Component } from 'react';
 import { TextField, Checkbox, Button, Typography, Link, FormControlLabel, Grid, Paper, MenuItem } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
-interface State {
-  name: string;
-  email: string;
-  mobile: string;
-  role: string;
-  password: string;
-  agree: boolean;
-}
+class SignUp extends Component {
+  state = { name: '', email: '', mobile: '', role: '', password: '', agree: false };
 
-class SignUp extends Component<{}, State> {
-  state: State = { name: '', email: '', mobile: '', role: '', password: '', agree: false };
-
-  handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = event.target;
-    const checked = (event.target as HTMLInputElement).checked;
-    this.setState({ [name]: type === 'checkbox' ? checked : value } as Pick<State, keyof State>);
+  handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
+    this.setState({ [name]: type === 'checkbox' ? checked : value });
   };
 
-  handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state);
   };
@@ -57,6 +47,7 @@ class SignUp extends Component<{}, State> {
                       value={this.state.name}
                       onChange={this.handleChange}
                       required
+                      sx={{ fontFamily: "Georgia" }}
                     />
                   </Grid>
                   <Grid item xs={6}>
@@ -70,6 +61,7 @@ class SignUp extends Component<{}, State> {
                       value={this.state.email}
                       onChange={this.handleChange}
                       required
+                      sx={{ fontFamily: "Georgia" }}
                     />
                   </Grid>
                   <Grid item xs={6}>
@@ -83,6 +75,7 @@ class SignUp extends Component<{}, State> {
                       value={this.state.mobile}
                       onChange={this.handleChange}
                       required
+                      sx={{ fontFamily: "Georgia" }}
                     />
                   </Grid>
                   <Grid item xs={6}>
@@ -96,6 +89,7 @@ class SignUp extends Component<{}, State> {
                       value={this.state.password}
                       onChange={this.handleChange}
                       required
+                      sx={{ fontFamily: "Georgia" }}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -109,9 +103,10 @@ class SignUp extends Component<{}, State> {
                       value={this.state.role}
                       onChange={this.handleChange}
                       required
+                      sx={{ fontFamily: "Georgia" }}
                     >
-                      <MenuItem value="User">User</MenuItem>
-                      <MenuItem value="Admin">Admin</MenuItem>
+                      <MenuItem value="User" sx={{ fontFamily: "Georgia" }}>User</MenuItem>
+                      <MenuItem value="Admin" sx={{ fontFamily: "Georgia" }}>Admin</MenuItem>
                     </TextField>
                   </Grid>
                 </Grid>
@@ -126,23 +121,24 @@ class SignUp extends Component<{}, State> {
                     />
                   }
                   label={
-                    <Typography variant="body2">
-                      I agree to the <Link href="#">Terms & Conditions</Link>
+                    <Typography variant="body2" sx={{ fontFamily: "Georgia" }}>
+                      I agree to the <Link href="#" sx={{ fontFamily: "Georgia" }}>Terms & Conditions</Link>
                     </Typography>
                   }
+                  sx={{ fontFamily: "Georgia" }}
                 />
 
                 <Button
                   type="submit"
                   variant="contained"
                   fullWidth
-                  style={{ marginTop: '20px', borderRadius: '25px', backgroundColor: '#174193' }}
+                  style={{ marginTop: '20px', borderRadius: '25px', backgroundColor: '#174193', fontFamily: 'Georgia' }}
                 >
                   Create Account
                 </Button>
 
-                <Typography variant="body2" style={{ textAlign: 'center', marginTop: '15px' }}>
-                  Already have an account? <Link component={RouterLink} to="/signin">Sign In</Link>
+                <Typography variant="body2" style={{ textAlign: 'center', marginTop: '15px', fontFamily: "Georgia" }}>
+                  Already have an account? <Link component={RouterLink} to="/signin" sx={{ fontFamily: "Georgia" }}>Sign In</Link>
                 </Typography>
               </form>
             </Grid>
